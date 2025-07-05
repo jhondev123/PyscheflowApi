@@ -1,0 +1,79 @@
+## Compilação padrão
+bin/
+obj/
+
+## Arquivos do Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.VC.db
+
+## Configurações locais e de Debug
+*.launch.json
+*.local.json
+*.log
+*.pdb
+*.mdb
+*.opendb
+
+## Arquivos temporários e de Cache
+*.tmp
+*.temp
+*.cache
+*.vspscc
+*.vssscc
+
+## Diretórios de pacotes
+packages/
+*.nupkg
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+## Build do Rider / JetBrains
+.idea/
+
+## Arquivos de publish temporário
+publish/
+
+## Configurações de ambiente (não versionar senhas!)
+appsettings.Development.json
+appsettings.Local.json
+appsettings.*.local.json
+
+## Ignorar histórico do Git em submódulos antigos
+*.orig
+
+## Docker (se estiver usando)
+docker-compose.override.yml
+*.env
+.env.*
+
+## Outros arquivos indesejados do sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ReSharper e ferramentas JetBrains
+_ReSharper*/
+*.ReSharper
+*.DotSettings.user
+
+# Arquivos de log comuns
+*.log
+
+# Backup e arquivos temporários de editores
+*~
+*.bak
+*.swp
+
+# Testes e relatórios temporários
+TestResults/
+coverage/
+
+# Diretórios ocultos de ferramentas específicas (ajuste conforme o necessário)
+.idea/
+.vscode/
+
