@@ -8,5 +8,6 @@ namespace Psycheflow.Api.Domain.Entities
 {
     public sealed class Psychologist : BaseEntity
     {
+        public string DocumentNumber { get; set; }
     }
 }

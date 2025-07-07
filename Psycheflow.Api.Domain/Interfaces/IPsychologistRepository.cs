@@ -9,6 +9,6 @@ namespace Psycheflow.Api.Domain.Interfaces
 {
     public interface IPsychologistRepository : IBaseRepository<Psychologist>
     {
-        Task<Psychologist> GetByDocumentNumber(string documentNumber);
+        Task<Psychologist> GetByDocumentNumber(string documentNumber, CancellationToken cancellationToken);
     }
 }
