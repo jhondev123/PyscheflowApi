@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Psycheflow.Api.Application.Services;
+using Psycheflow.Api.Application.UseCases.Users.CreateUser;
 using Psycheflow.Api.Application.UseCases.Users.CreateUser.Dtos;
 using Psycheflow.Api.Application.UseCases.Users.Login.Dtos;
 using Psycheflow.Api.Domain.Entities;
+using System.Text.Json;
 
 namespace Psycheflow.Api.Controllers
 {
@@ -26,19 +28,24 @@ namespace Psycheflow.Api.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterRequestDto requestDto)
         {
-            User user = new User
-            {
-                UserName = requestDto.UserName,
-                Email = requestDto.Email,
-            };
+            RegisterUseCase useCase = new RegisterUseCase(_userManager);
+            RegisterResponseDto responseDto = await useCase.Execute(requestDto,new CancellationToken());
 
-            IdentityResult result = await _userManager.CreateAsync(user, requestDto.Password);
-            if (!result.Succeeded)
-            {
-                return BadRequest(result.Errors);
-            }
+            return StatusCode(responseDto.Status, responseDto);
+            //User user = new User
+            //{
+            //    Name = requestDto.UserName,
+            //    UserName = requestDto.UserName,
+            //    Email = requestDto.Email,
+            //};
 
-            return Ok();
+            //IdentityResult result = await _userManager.CreateAsync(user, requestDto.Password);
+            //if (!result.Succeeded)
+            //{
+            //    return BadRequest(result.Errors);
+            //}
+            //return Ok();
+
         }
 
         [HttpPost("login")]

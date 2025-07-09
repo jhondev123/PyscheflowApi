@@ -17,7 +17,7 @@ namespace Psycheflow.Api.Persistence.Repositories
         {
             Context = context;
         }
-        public T Create(T entity)
+        public virtual T Create(T entity)
         {
             entity.CreatedAt = DateTimeOffset.UtcNow;
             Context.Add(entity);

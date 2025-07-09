@@ -9,7 +9,20 @@ namespace Psycheflow.Api.Application.UseCases.Users.CreateUser.Dtos
 {
     public sealed class RegisterResponseDto
     {
-        public string Token { get; set; }
         public User User { get; set; }
+        public int Status { get; set; }
+        public string Message { get; set; }
+
+        public RegisterResponseDto(User user, int status)
+        {
+            User = user;
+            Status = status;
+        }
+
+        public RegisterResponseDto(int status, string message)
+        {
+            Status = status;
+            Message = message;
+        }
     }
 }
