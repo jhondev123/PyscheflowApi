@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Psycheflow.Api.Domain.Interfaces
 {
-    public interface IUseCase<RequestDto, T> where T : GenericResponseDto
+    public abstract class GenericResponseDto
     {
-        Task<T> Execute(RequestDto requestDto, CancellationToken cancellationToken);
+        public string Message { get; set; } = string.Empty;
+        public int Status { get; set; }
     }
 }
