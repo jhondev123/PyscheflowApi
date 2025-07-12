@@ -9,12 +9,10 @@ using System.Threading.Tasks;
 namespace Psycheflow.Api.Application.UseCases.Users.CreateUser.Dtos
 {
     public sealed class RegisterResponseDto : GenericResponseDto
-    {
-        public User? User { get; set; }
-       
+    {       
         public RegisterResponseDto(User? user, int status,string message = "")
         {
-            User = user;
+            Data = new Dictionary<string, object> { { "user" , user} };
             Status = status;
             Message = message;
         }

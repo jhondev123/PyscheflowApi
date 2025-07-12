@@ -4,6 +4,7 @@ using Psycheflow.Api.Application.UseCases.Users.CreateUser.Dtos;
 using Psycheflow.Api.Application.UseCases.Users.Login.Dtos;
 using Psycheflow.Api.Domain.Entities;
 using Psycheflow.Api.Domain.Interfaces;
+using Psycheflow.Api.Domain.Interfaces.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,15 +19,17 @@ namespace Psycheflow.Api.Application.UseCases.Users.Login
         private UserManager<User> UserManager { get; set; }
         private SignInManager<User> SignInManager { get; set; }
         private TokenService TokenService { get; set; }
-        public LoginUseCase(UserManager<User> userManager, SignInManager<User> signInManager, TokenService tokenService)
+        private IUserRepository Repository { get; set; }
+        public LoginUseCase(UserManager<User> userManager, SignInManager<User> signInManager, TokenService tokenService, IUserRepository repository)
         {
             UserManager = userManager;
             SignInManager = signInManager;
             TokenService = tokenService;
+            Repository = repository;
         }
         public async Task<LoginResponseDto> Execute(LoginRequestDto requestDto, CancellationToken cancellationToken)
         {
-            User? user = await UserManager.FindByEmailAsync(requestDto.Email);
+            User? user = Repository.GetUser(requestDto.Email, (Guid)requestDto.CompanyId);
             if (user == null)
             {
                 return new LoginResponseDto(string.Empty,(int)HttpStatusCode.Unauthorized,"Email ou senha não inválidos");

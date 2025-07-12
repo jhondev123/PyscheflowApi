@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Psycheflow.Api.Application.Services;
 using Psycheflow.Api.Domain.Interfaces;
+using Psycheflow.Api.Domain.Interfaces.Interfaces;
 using Psycheflow.Api.Persistence.Contexts;
 using Psycheflow.Api.Persistence.Repositories;
 using System;
@@ -23,7 +24,9 @@ namespace Psycheflow.Api.Persistence.Extensions
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IPsychologistRepository, PsychologistRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<TokenService>();
+            services.AddScoped<UserService>();
         }
     }
 }

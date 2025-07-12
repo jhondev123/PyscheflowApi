@@ -9,11 +9,10 @@ namespace Psycheflow.Api.Application.UseCases.Users.Login.Dtos
 {
     public class LoginResponseDto : GenericResponseDto
     {
-        public string Token { get; set; }
 
         public LoginResponseDto(string token,int status,string message = "")
         {
-            Token = token;
+            Data = new Dictionary<string, object>() { { "token", token } };
             Status = status;
             Message = message;
         }

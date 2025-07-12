@@ -2,6 +2,7 @@
 using Psycheflow.Api.Application.UseCases.Psychologists.CreatePsychologist.Dtos;
 using Psycheflow.Api.Domain.Entities;
 using Psycheflow.Api.Domain.Interfaces;
+using Psycheflow.Api.Domain.Interfaces.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;

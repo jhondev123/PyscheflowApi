@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Psycheflow.Api.Domain.Interfaces
+namespace Psycheflow.Api.Domain.Interfaces.Interfaces
 {
     public interface IPsychologistRepository : IBaseRepository<Psychologist>
     {

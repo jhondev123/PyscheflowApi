@@ -19,14 +19,14 @@ namespace Psycheflow.Api.Persistence.Repositories
         }
         public virtual T Create(T entity)
         {
-            entity.CreatedAt = DateTimeOffset.UtcNow;
+            entity.CreatedAt = DateTime.UtcNow;
             Context.Add(entity);
             return entity;
         }
 
         public void Delete(T entity)
         {
-            entity.DeletedAt = DateTimeOffset.UtcNow;
+            entity.DeletedAt = DateTime.UtcNow;
             Context.Remove(entity);
         }
 
@@ -43,7 +43,7 @@ namespace Psycheflow.Api.Persistence.Repositories
 
         public T Update(T entity)
         {
-            entity.UpdatedAt = DateTimeOffset.UtcNow;
+            entity.UpdatedAt = DateTime.UtcNow;
             Context.Update(entity);
             return entity;
         }
