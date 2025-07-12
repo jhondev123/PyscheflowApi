@@ -18,7 +18,7 @@ namespace Psycheflow.Api.Persistence.Repositories
 
         public Task<Psychologist> GetByDocumentNumber(string documentNumber, CancellationToken cancellationToken)
         {
-            return Context.psychologists.FirstOrDefaultAsync(x => x.DocumentNumber.Equals(documentNumber, StringComparison.Ordinal), cancellationToken);
+            return Context.Psychologists.FirstOrDefaultAsync(x => x.LicenseNumber.Value.Equals(documentNumber, StringComparison.Ordinal), cancellationToken);
         }
     }
 }

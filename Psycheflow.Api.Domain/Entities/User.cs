@@ -14,7 +14,8 @@ namespace Psycheflow.Api.Domain.Entities
     {
         public string Name { get; set; }
 
-        public Cpf Cpf { get; set; }
+        public Guid CompanyId { get; set; }
+        public Company Company { get; set; }
         public DateTime BirthDate { get; set; }
         public DateTimeOffset? CreatedAt { get; set; }
         public DateTimeOffset? UpdatedAt { get; set; }
